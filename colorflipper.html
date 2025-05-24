@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Flipper</title>
+</head>
+<style>
+    #Green {
+       background-color: green; 
+    }  
+    #Red{
+        background-color: red;
+    }  
+    #Blue{
+        background-color: blue;
+    }
+    button{
+        height:20px;
+        width:70px;
+        border-radius: 20px;
+    }  
+</style>
+<body>
+   <h2>Color Flipper</h2>
+   <button id="Green" onclick="setColor('Green')">Green</button>
+   <button id="Red" onclick="setColor('Red')">Red</button>
+   <button id ="Blue" onclick="setColor('Blue')">Blue</button>
+   <button onclick="randomColor()">Random</button>
+</body>
+<script>
+    const body= document.getElementsByTagName("body")[0];
+
+    function setColor(name){
+       body.style.backgroundColor=name;
+    }
+    function randomColor() {
+        const Red = Math.round(Math.random()*255)
+        const Blue = Math.round(Math.random()*255)
+        const Green = Math.round(Math.random()*255)
+        const color=`rgb(${Red},${Green},${Blue})`
+        body.style.backgroundColor=color;
+    }
+randomColor();
+</script>
+</html>
+
+Another method :
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Flipper</title>
+    <style>
+        body{
+            text-align: center;
+            font-family: Arial, sans-serif;
+            transition: background 0.5s;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            background: black;
+            color: white;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Color Flipper</h1>
+    <button class="btn" onclick="changeColor()">Click Me </button>
+    <p>Background Color :
+        <span id ="colorCode">#FFFFF</span>
+</p>
+<script>
+    function randomColor(){
+        let letters="0123456789ABCDEF";
+        let color="#";
+        for(let i=0; i<6; i++){
+            color+=letters[Math.floor(Math.random()*16)];
+        }
+        return color;
+    }
+    function changeColor() {
+        let newColor=randomColor();
+        document.body.style.backgroundColor=newColor;
+        document.getElementById("colorCode").innerText=newColor;
+
+    }
+
+</script>
+
+   
+</body>
+</html>

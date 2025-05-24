@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+</head>
+<style>
+    body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin-top: 100px;
+        }
+        .stopwatch {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            
+        }
+       
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .start { background: #28a745; color: white; }
+        .stop { background: #dc3545; color: white; }
+        .reset { background: #007bff; color: white; }
+        button:hover { opacity: 0.8; }
+    </style>
+</style>
+<body>
+    <h3>Stopwatch</h3>
+    <h1 id="display">00:00</h1>
+    <button class="start" onclick="start()">Start</button>
+    <button class="stop" onclick="stop()">Stop</button>
+    <button class="reset" onclick="reset()">Reset</button>
+ <script>
+    let count =0;
+    let timer;
+    
+    function start() {
+        if(!timer){
+            timer=setInterval(()=>{
+         count++;
+         let minutes=Math.floor(count/60); 
+         let seconds=count % 60;
+         document.getElementById("display").innerText = 
+( minutes<10?"0":"")+minutes+":"+(seconds<10?"0":"")+seconds
+            },1000);
+        }
+    }
+       function stop(){
+        clearInterval(timer);
+        timer=null;
+       } 
+       function reset(){
+        stop();
+        count=0;
+        document.getElementById("display").innerText="00:00"
+       }
+</script>
+</body>
+</html>
+
+    

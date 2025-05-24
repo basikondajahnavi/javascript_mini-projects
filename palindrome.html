@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Checker</title>
+</head>
+<body>
+    <h1>Palindrome Checker </h1>
+    <input id="input" type="text" placeholder="type something">
+    <button onclick="check()">Check</button>
+</body>
+<script>
+    const input =document.getElementById("input");
+    function check() {
+    const value =input.value.toLowerCase().replace(/[^a-z0-9]/g,"");  
+    const reversed=value.split("").reverse().join("");
+
+    if(value ===reversed ){
+        alert("palindrome");
+     } else{
+        alert("its not palindrome");
+    }
+} 
+</script>
+</html>
+
